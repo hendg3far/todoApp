@@ -1,10 +1,11 @@
-import 'package:easy_date_timeline/easy_date_timeline.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/app_theme.dart';
 import 'package:todo/providers/app_config.dart';
 import 'package:todo/providers/task_provider.dart';
-import 'package:todo/tabs/tasks/task_item.dart';
+import 'package:todo/home/tabs/tasks/task_item.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:easy_date_timeline/easy_date_timeline.dart';
 
 class TasksTab extends StatefulWidget {
   @override
@@ -28,12 +29,14 @@ class _TasksTabState extends State<TasksTab> {
               top: MediaQuery.of(context).size.height * 0.06,
               start: MediaQuery.of(context).size.width * 0.05,
               child: Text(
-                'To Do List',
+                AppLocalizations.of(context)!.app_title,
                 style: Theme.of(context).textTheme.titleLarge,
               ),
             ),
             Padding(
-              padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.14,),
+              padding: EdgeInsets.only(
+                top: MediaQuery.of(context).size.height * 0.14,
+              ),
               child: CustomDateTimeLine(),
             ),
           ],

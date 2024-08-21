@@ -4,10 +4,13 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:todo/app_theme.dart';
 import 'package:provider/provider.dart';
-import 'package:todo/home_screen.dart';
+import 'package:todo/auth/login/login.dart';
+import 'package:todo/auth/register/register.dart';
+import 'package:todo/home/home_screen.dart';
 import 'package:todo/providers/app_config.dart';
 import 'package:todo/providers/task_provider.dart';
-import 'package:todo/tabs/tasks/edit_task.dart';
+import 'package:todo/home/tabs/tasks/edit_task.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -44,14 +47,19 @@ class MyApp extends StatelessWidget {
     var provider = Provider.of<AppConfig>(context);
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: HomeScreen.routeName,
+      initialRoute: Login.routeName,
       routes: {
+        Login.routeName: (_) => Login(),
+        Register.routeName: (_) => Register(),
         HomeScreen.routeName: (_) => HomeScreen(),
         EditTask.routeName: (_) => EditTask(),
       },
       theme: AppTheme.lightTheme,
       themeMode: provider.appTheme,
       darkTheme: AppTheme.darkTheme,
+      localizationsDelegates: AppLocalizations.localizationsDelegates,
+      supportedLocales: AppLocalizations.supportedLocales,
+      locale: Locale(provider.language),
     );
   }
 }

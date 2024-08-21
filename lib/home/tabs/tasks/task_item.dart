@@ -1,15 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:todo/app_theme.dart';
 import 'package:todo/firebase_utils.dart';
 import 'package:todo/models/task.dart';
 import 'package:provider/provider.dart';
 import 'package:todo/providers/task_provider.dart';
-import 'package:todo/tabs/tasks/edit_task.dart';
+import 'package:todo/home/tabs/tasks/edit_task.dart';
 
 class TaskItem extends StatelessWidget {
   Task task;
